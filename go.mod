@@ -1,3 +1,3 @@
-module github.com/gengqianyu/gointro
+module gointro
 
 go 1.17

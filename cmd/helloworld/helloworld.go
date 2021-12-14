@@ -37,9 +37,9 @@ Go 语言并发编程
 	 分布式比较复杂，它没有具体的这样的一个流程，有很多人互相的等来等去，相互传递消息。go语言是为并发编程设计的。
 
 go install 命令必须使用在和安装文件同目录
-必须和helloworld.go 同级目录下
-go run filename.go 运行go程序
-go build helloworld.go 编译go程序
+必须和 helloworld.go 同级目录下
+go run filename.go 运行 go 程序
+go build helloworld.go 编译 go 程序
 */
 package main
 
