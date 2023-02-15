@@ -7,7 +7,6 @@
     <list default="true" id="f1b8ba4b-c9d5-4d54-aa58-fb22c4e6e46d" name="变更" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/mergesort/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/mergesort/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
