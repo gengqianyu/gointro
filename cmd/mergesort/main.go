@@ -31,28 +31,33 @@
 	传统语言				|				go语言
 						|
 	 方法调用			|				channel
+
 [对象]------->[对象]		|	[goroutine]------->[goroutine]
-						|
-						|
+
+	|
+	|
 
 外部排序 Pipeline
 
-			+--->[读取]--->[内部排序]-----+			上游两路数据必须排好序才能进行归并
-			|							|--->[归并]------+
-			+--->[读取]--->[内部排序]-----+				|
+	+--->[读取]--->[内部排序]-----+			上游两路数据必须排好序才能进行归并
+	|							|--->[归并]------+
+	+--->[读取]--->[内部排序]-----+				|
+
 [原始数据]---|											+--->[归并]--->[排序结果写文件]
-			+--->[读取]--->[内部排序]-----+				|
-			|							|--->[归并]------+
-			+--->[读取]--->[内部排序]-----+
 
-			+--->[ReadSource]--->[InMemSort]----+			上游两路数据必须排好序才能进行归并
-			|									|--->[Merge]----+
-			+--->[ReadSource]--->[InMemSort]----+				|
+	+--->[读取]--->[内部排序]-----+				|
+	|							|--->[归并]------+
+	+--->[读取]--->[内部排序]-----+
+
+	+--->[ReadSource]--->[InMemSort]----+			上游两路数据必须排好序才能进行归并
+	|									|--->[Merge]----+
+	+--->[ReadSource]--->[InMemSort]----+				|
+
 [Source]---|													+--->[Merge]--->[WriterSink]
-			+--->[ReadSource]--->[InMemSort]----+				|
-			|									|--->[Merge]----+
-			+--->[ReadSource]--->[InMemSort]----+
 
+	+--->[ReadSource]--->[InMemSort]----+				|
+	|									|--->[Merge]----+
+	+--->[ReadSource]--->[InMemSort]----+
 */
 package main
 
@@ -74,6 +79,7 @@ func main() {
 	}
 	// defer execute file close before exit
 	defer file.Close()
+
 	// generate data
 
 	in := pipeline.RandomSource(num)
