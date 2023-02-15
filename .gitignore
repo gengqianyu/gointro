@@ -16,4 +16,4 @@
 # vendor/
 
 #忽略编辑器文件夹
-/.idea
+.idea
