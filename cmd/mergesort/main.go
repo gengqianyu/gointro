@@ -115,6 +115,7 @@ func mergeDome() {
 		pipeline.InMemSort(pipeline.ArraySource(5, 6, 3, 4, 9, 8, 2)),
 		pipeline.InMemSort(pipeline.ArraySource(7, 8, 0, 1, 4, 5, 6)),
 	)
+
 	//for {
 	//	if element, ok := <-ch; ok {
 	//		print(element)
