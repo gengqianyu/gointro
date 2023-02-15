@@ -26,7 +26,6 @@ func PrintFile(fileName string) {
 		panic(err)
 	}
 	defer file.Close()
-
 	p := pipeline.ReaderSource(bufio.NewReader(file), -1)
 	//打印前一百个
 	count := 0
@@ -95,10 +94,13 @@ func CreatePipeline(fileName string, chunkCount int) <-chan int {
 
 // CreateNetPipeline create pipeline 文件名  分多少个块读取
 // 网络的扩展
-//				Channel
+//
+//	Channel
+//
 // [goroutine]-------->[goroutine]
 //
-//			  			Channel						 		internet								Channel
+//	Channel						 		internet								Channel
+//
 // [InMemSort goroutine]-------->[Writer Sink goroutine]----------------->[Reader Source goroutine]-------->[Merge goroutine]
 // [							节点1					]					[					节点2						]
 //
@@ -110,7 +112,7 @@ func CreateNetPipeline(fileName string, chunkCount int) <-chan int {
 	//每一块的大小
 	fileInfo, err := os.Stat(fileName)
 	if err != nil {
-		panic(err)
+		panic(err.(any))
 	} //获取文件详情
 	chunkSize := int(math.Ceil(float64(fileInfo.Size()) / float64(chunkCount))) //每一块的大小
 	//打开计时器
@@ -121,7 +123,7 @@ func CreateNetPipeline(fileName string, chunkCount int) <-chan int {
 		//每次循环都得打开文件
 		file, err := os.Open(fileName)
 		if err != nil {
-			panic(err)
+			panic(err.(any))
 		}
 		//将下一次在文件上读取或写入的偏移量设置为偏移量，whence解释：0表示相对于文件原点，1表示相对于当前偏移量，2表示相对于末尾。
 		//设置下一次读取相较于文件原点的偏移量
