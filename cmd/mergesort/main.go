@@ -122,6 +122,7 @@ func mergeDome() {
 	//		break
 	//	}
 	//}
+
 	//简单做法
 	for e := range ch {
 		fmt.Println(e)
